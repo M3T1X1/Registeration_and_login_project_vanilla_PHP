@@ -15,22 +15,24 @@ foreach($_SERVER as $key => $value)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+
     <main>
     <h1>Register</h1>
-    <h3>Welcome to the online cooking book</h3>
+    <h3>Welcome to the simple registeration form</h3>
 
         <form action="<?php  htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"> 
         
         <label>Email:</label><br>
-        <input class ="form_input" type = "text" name="email" required><br><br>
+        <input class ="form_input_register" type = "text" name="email" required><br><br>
         
         <label>Username:</label><br>
-        <input class ="form_input" type = "text" name="username" required><br><br>
+        <input class ="form_input_register" type = "text" name="username" required><br><br>
 
         <label> Password:</label><br>
-        <input class ="form_input" type = "password" name="password" required><br><br>
+        <input class ="form_input_register" type = "password" name="password" required><br><br>
 
         <input class="subbut" type = "submit" name="sub" value = "Register now!">
     
@@ -43,10 +45,6 @@ foreach($_SERVER as $key => $value)
         Already have an account?
         <a href="login_page.php">Click here to Log in</a>
         </label>
-    </main>
-</body>
-</html>
-
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -63,8 +61,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                                         ('$email',
                                             '$username',
                                                 '$password_hash')");
-    
+                                                    header('Location: login_page.php');   
+
+                                               
     }
 }
-mysqli_close($connect);
 ?>
+    </main>
+
+    <div class ="info">
+        
+    </div>
+   
+</body>
+</html>

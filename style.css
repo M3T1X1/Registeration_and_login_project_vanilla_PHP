@@ -5,13 +5,19 @@ html
 {
     font-family:'Muli',sans-serif;
     font-size: 150%;
+    background-color: #e3e0cc;
 }
 main
 {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
     text-align: center;
+    border-style: outset;
+    border-radius: 5%;
+    border-width: 15%;
+    padding: 170px;
     
 }
 .login
@@ -23,7 +29,15 @@ main
     font-size: 100%;
 }
 
-.form_input
+.form_input_register
 {
-    width: 50%;
+    width: 70%;
 }
+.form_input_login
+{
+    width: 300px;
+}
+
+
+
+

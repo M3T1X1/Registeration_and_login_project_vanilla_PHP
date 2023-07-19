@@ -11,9 +11,7 @@ include("db.php")
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <main>
-
 <h1>Log in</h1>
 
     
@@ -21,13 +19,13 @@ include("db.php")
         
         <label>Username:</label><br>
 
-        <input class ="form_input" type = "text" name="username" required><br><br>
+        <input class ="form_input_login" type = "text" name="username" required><br><br>
 
         <label> Password:</label><br>
 
-        <input class ="form_input" type = "password" name="password" required><br><br>
+        <input class ="form_input_login" type = "password" name="password" required><br><br>
 
-        <input class="subbut" type = "submit" name="sub" value = "Register now!">
+        <input class="subbut" type = "submit" name="sub" value = "Log in now!">
     
     
         </form>
