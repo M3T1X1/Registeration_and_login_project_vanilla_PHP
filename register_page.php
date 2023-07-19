@@ -13,37 +13,35 @@ foreach($_SERVER as $key => $value)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-    <h1>Cooking Book</h1>
-    <h2>Welcome to the online cooking book </h2>
-    
+    <h1>Register</h1>
+    <h3>Welcome to the online cooking book</h3>
+
         <form action="<?php  htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post"> 
+        
         <label>Email:</label><br>
-
         <input class ="form_input" type = "text" name="email" required><br><br>
-
+        
         <label>Username:</label><br>
-
         <input class ="form_input" type = "text" name="username" required><br><br>
 
         <label> Password:</label><br>
-
         <input class ="form_input" type = "password" name="password" required><br><br>
 
-        <input id="subbut" type = "submit" name="sub" value = "Register now!">
+        <input class="subbut" type = "submit" name="sub" value = "Register now!">
     
     
         </form>
         
         <br>
 
-        <label id="login">
+        <label class="login">
         Already have an account?
-        <a href="placeholder">Click here to Log in</a>
+        <a href="login_page.php">Click here to Log in</a>
         </label>
     </main>
 </body>

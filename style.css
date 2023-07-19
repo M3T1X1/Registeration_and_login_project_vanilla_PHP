@@ -8,18 +8,17 @@ html
 }
 main
 {
-    position: absolute;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
     text-align: center;
-    bottom: 35%;
-    right: 35%;
-    
     
 }
-#login
+.login
 {
     font-size: 75%;
 }
-#subbut
+.subbut
 {
     font-size: 100%;
 }
