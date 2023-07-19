@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+html
+{
+    font-family:'Muli',sans-serif;
+    font-size: 150%;
+}
+main
+{
+    position: absolute;
+    text-align: center;
+    bottom: 35%;
+    right: 35%;
+    
+    
+}
+#login
+{
+    font-size: 75%;
+}
+#subbut
+{
+    font-size: 100%;
+}
+
+.form_input
+{
+    width: 50%;
+}
