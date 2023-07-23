@@ -7,15 +7,15 @@ $db_name = "cooking_book";
 
 $connect = mysqli_connect($db_hostname,$db_user,$db_password,$db_name);     
 
-/*
-if(isset($connect))
+if(!$connect)
 {
-    echo "You are connected";
+    die("Something is wrong with the db connection:  ". mysqli_connect_error());
 }
-else 
-{                                                         
-    echo "Something went wrong with database connection"; 
+/*
+else
+{
+    echo "Connected to db";
 }
-
 */
+
 ?>

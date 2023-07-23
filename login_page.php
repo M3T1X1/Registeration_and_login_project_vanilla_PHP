@@ -1,6 +1,5 @@
 <?php
 include("db.php");
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -20,19 +19,16 @@ session_start();
         
         <label>Username:</label><br>
 
-        <input class ="form_input_login" type = "text" name="username" required><br><br>
+        <input class ="form_input_login" type = "text" name="un" required><br><br>
 
         <label> Password:</label><br>
 
-        <input class ="form_input_login" type = "password" name="password" required><br><br>
+        <input class ="form_input_login" type = "password" name="passwd" required><br><br>
 
         <input class="subbut" type = "submit" name="sub" value = "Log in now!">
         
         <br> <br> 
 
-        Remember me
-
-        <input type="checkbox" name = "remember">
     
     
         </form>
@@ -42,54 +38,32 @@ session_start();
 </html>
 
 <?php
-
-
 if(isset($_POST["sub"]))
 {
-    $username = filter_input(INPUT_POST,"username",FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_SPECIAL_CHARS); 
-    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $username = filter_input(INPUT_POST,"un",FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST,"passwd",FILTER_SANITIZE_SPECIAL_CHARS); 
     
-    $query = "SELECT username, password FROM users WHERE username = '$username' AND password = '$password_hash';";
+    $query = "SELECT * FROM users WHERE username = '$username';";
 
     $result = mysqli_query($connect, $query);
-  
-    if(mysqli_num_rows($result) !== 1)
-    {
-       echo "<script> alert('Wrong password or username');</script>";
-    }
-    else
-    {
-        $row = mysqli_fetch_assoc($result);
+    $row_check = mysqli_num_rows($result);
 
-        if($row['username'] === $username && $row['password'] === $password_hash)
-           {
-               header("Location: home_page.php");
-               exit();
-    }
+   // echo $row_check;
 
-    
-    /*if(mysqli_num_rows($result) === 1)
-    {
-        $row = mysqli_fetch_assoc($result);
-
-     if($row['username'] == $username && $row['password'] == $password_hash)
+        if($row_check !== 1)
         {
-            header("Location: home_page.php");
-            exit();
-        } 
+            echo "<script>alert('Invalid password or username');</script>";
+        }
         else
         {
-            echo "Incorect password or login";
+            $row = mysqli_fetch_assoc($result);
+                if(password_verify($password,$row['password']) == true)
+                {
+                    header("Location: home_page.php");
+                }
         }
+       
     }
-*/
-
-    
-}
-
-}
+  
 mysqli_close($connect);
-session_destroy();
-
 ?>

@@ -52,18 +52,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_POST["sub"]))
     {
+        
         $email = filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
         $username = filter_input(INPUT_POST,"username",FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_SPECIAL_CHARS);     
         
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_query($connect, "INSERT INTO users (email, username, password) VALUES
+        $query =  mysqli_query($connect, "INSERT INTO users (email, username, password) VALUES
                                         ('$email',
                                             '$username',
                                                 '$password_hash')");
                                                     header('Location: login_page.php');   
 
+                      if($query)
+                      {
+                        echo "<script> alert('You are registered'); </script>";
+                      }                 
                                                
     }
 }
