@@ -18,7 +18,6 @@ foreach($_SERVER as $key => $value)
     
 </head>
 <body>
-
     <main>
     <h1>Register</h1>
     <h3>Welcome to the simple registeration form</h3>
@@ -45,7 +44,9 @@ foreach($_SERVER as $key => $value)
         Already have an account?
         <a href="login_page.php">Click here to Log in</a>
         </label>
-<?php
+
+
+        <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -66,12 +67,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                                                
     }
 }
-?>
+        ?>
+    
     </main>
-
-    <div class ="info">
-        
-    </div>
-   
 </body>
 </html>
