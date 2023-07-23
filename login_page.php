@@ -50,17 +50,18 @@ if(isset($_POST["sub"]))
 
    // echo $row_check;
 
-        if($row_check !== 1)
-        {
-            echo "<script>alert('Invalid password or username');</script>";
-        }
-        else
+        if($row_check === 1)
         {
             $row = mysqli_fetch_assoc($result);
                 if(password_verify($password,$row['password']) == true)
                 {
                     header("Location: home_page.php");
                 }
+            
+        else
+        {
+            echo "<script>alert('Invalid password or username');</script>";
+        }
         }
        
     }
