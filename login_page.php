@@ -30,7 +30,10 @@ session_start();
         
         <br> <br> 
 
-    
+        <label class="login">
+        First time in our page?
+        <a href="register_page.php">Click here to create an account</a>
+        </label>
     
         </form>
  </main>
