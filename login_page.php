@@ -1,5 +1,6 @@
 <?php
 include("db.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,10 @@ include("db.php");
 </html>
 
 <?php
+
+$_SESSION['username'] = filter_input(INPUT_POST,"un",FILTER_SANITIZE_SPECIAL_CHARS);
+
+
 if(isset($_POST["sub"]))
 {
     $username = filter_input(INPUT_POST,"un",FILTER_SANITIZE_SPECIAL_CHARS);
