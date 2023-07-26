@@ -20,6 +20,10 @@ main
     padding: 170px;
     
 }
+h4
+{
+color: blue;
+}
 .login
 {
     font-size: 75%;
@@ -28,7 +32,6 @@ main
 {
     font-size: 100%;
 }
-
 .form_input_register
 {
     width: 70%;
@@ -41,4 +44,5 @@ main
 {
     color: red;
 }
+
 

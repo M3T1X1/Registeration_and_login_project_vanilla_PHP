@@ -1,5 +1,5 @@
 <?php
-require("db.php");
+require_once("db.php");
 /*
 foreach($_SERVER as $key => $value)
 {
