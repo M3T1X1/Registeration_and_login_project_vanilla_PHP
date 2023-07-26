@@ -47,8 +47,30 @@ foreach($_SERVER as $key => $value)
         <br> <br> 
         <div id="reg_error">
             <?php
-            
+            if(isset($_POST["sub"]))
+            {
+                $email = $_POST["email"];
+                $username = $_POST["username"];
+                $query_email = mysqli_query($connect, "SELECT email FROM users WHERE email = '$email'");
+                $query_user = mysqli_query($connect, "SELECT username FROM users WHERE username = '$username'");
+                    if(mysqli_num_rows($query_email) > 0 && mysqli_num_rows($query_user) > 0)
+                    {
+                        exit("Email and user already exists");
+                    };
+                 
+                    if(mysqli_num_rows($query_email) > 0)
+                    {
+                        exit("Email already exists");
+                    }
+
+                    if(mysqli_num_rows($query_user) > 0)
+                    {
+                        exit("User already exists");
+                    }
+            }        
             ?>
+               
+           
         </div>
    
     </main>
@@ -66,15 +88,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-        if($row_check >= 1)
-        {
-            $query = "SELECT * FROM users WHERE email = '$email';";
-            $result = mysqli_query($connect,$query);
-            $row_check = mysqli_num_rows($result);
-
-            exit("<script>alert('That email is already in use');</script>");
-        }
-
         $query_insert =  mysqli_query($connect, "INSERT INTO users (email, username, password) VALUES
                                         ('$email',
                                             '$username',
@@ -85,9 +98,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                                                             {
                                                                 echo "<script> alert('You are registered'); </script>";
                                                             };           
-
+                                                        }
                                 
                
-    }
 }
+
 ?>
