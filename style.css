@@ -37,5 +37,8 @@ main
 {
     width: 300px;
 }
-
+#reg_error
+{
+    color: red;
+}
 

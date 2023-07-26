@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+require("db.php");
 session_start();
 ?>
 
@@ -21,30 +21,28 @@ session_start();
     <h3>Great to see you</h3>
 
     <h4>
-
         <?php
             if(isset($_SESSION['username']))
             {
             echo $_SESSION['username'];
             }
         ?>
+     </h4>
 
-    </h4>
-<form method="post">
+        <form method="post">
 
-    <input class="subbut" type="submit" name="logout" value= "Log Out!">
+            <input class="subbut" type="submit" name="logout" value= "Log Out!">
 
-</form>
+        </form>
 </main>
+
 </body>
 </html>
 
 <?php
-
 if(isset($_POST["logout"]))
 {
     session_destroy();
     header("Location: login_page.php");
 }
-
 ?>

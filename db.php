@@ -11,11 +11,4 @@ if(!$connect)
 {
     die("Something is wrong with the db connection:  ". mysqli_connect_error());
 }
-/*
-else
-{
-    echo "Connected to db";
-}
-*/
-
 ?>

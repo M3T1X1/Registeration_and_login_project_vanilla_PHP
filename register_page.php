@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+require("db.php");
 /*
 foreach($_SERVER as $key => $value)
 {
@@ -43,11 +43,18 @@ foreach($_SERVER as $key => $value)
         <label class="login">
         Already have an account?
         <a href="login_page.php">Click here to Log in</a>
-        </label>
-
-
-        <?php
-
+        </label> 
+        <br> <br> 
+        <div id="reg_error">
+            <?php
+            
+            ?>
+        </div>
+   
+    </main>
+</body>
+</html>
+<?php
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(isset($_POST["sub"]))
@@ -59,21 +66,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $query =  mysqli_query($connect, "INSERT INTO users (email, username, password) VALUES
+        if($row_check >= 1)
+        {
+            $query = "SELECT * FROM users WHERE email = '$email';";
+            $result = mysqli_query($connect,$query);
+            $row_check = mysqli_num_rows($result);
+
+            exit("<script>alert('That email is already in use');</script>");
+        }
+
+        $query_insert =  mysqli_query($connect, "INSERT INTO users (email, username, password) VALUES
                                         ('$email',
                                             '$username',
                                                 '$password_hash')");
                                                     header('Location: login_page.php');   
 
-                      if($query)
-                      {
-                        echo "<script> alert('You are registered'); </script>";
-                      }                 
-                                               
+                                                         if($query_insert)
+                                                            {
+                                                                echo "<script> alert('You are registered'); </script>";
+                                                            };           
+
+                                
+               
     }
 }
-        ?>
-    
-    </main>
-</body>
-</html>
+?>

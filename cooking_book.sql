@@ -40,14 +40,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `acc_creation_date`, `email`) VALUES
-(70, 'admin', '$2y$10$0jps/4f9rkU2SKphJ4CIOOEZdrSI8gWCfFFroHt9nCuOd2QDqRDTG', '2023-07-19 02:45:20', 'admin@gmail.com'),
-(71, 'kacper', '$2y$10$QfLFS1LP6nwyk6TLARpTg.MLXO5rFNQQ7KZZM.ckC4bg2zADe8R22', '2023-07-19 22:22:03', 'dusza-kacper@wp.pl'),
-(96, 'test1', '$2y$10$.VYfiWqWTUsnqPBHZOACZ.ljpJ4nP9Ot3sz.Oowvr7nT.UQ1KIEEW', '2023-07-23 01:26:28', 'test123@gmail.com'),
-(97, 'test2', '$2y$10$JVgSzwTPQ9ZKnEwCp.p6K.WzGXAuyclFnTDpdQ5h2mYTtrDmbdFRW', '2023-07-23 02:12:08', 'test2@gmail.com'),
-(98, 'test3', '$2y$10$.rSeu8gSatX1SLG6vRhOV.4kS2zKpE86uYINIX0gZfyN9iA0CQCI.', '2023-07-23 15:58:12', 'przykladmail@gmail.com'),
-(100, 'testy_sanitize', '$2y$10$MR6DVsJYTRwM1iE2vAxK/usVbBqH5gkotvdivckQHoYmO.Jd2NB9q', '2023-07-23 16:05:52', 'kacper@wp.pl'),
-(101, 'egz', '$2y$10$kSoAKQXbTr.JZJoEJvEw4uSk6DspfyGKf9RCZr2bnnPHsJN5k.SV2', '2023-07-23 22:28:45', 'egz@wp.pl'),
-(102, 'test10', '$2y$10$CHh7zvXRAyOr6k6Lt8JI.eg.o/ik1xKUAgX0oFAGxKwwS9icMkRCu', '2023-07-24 22:13:09', 'test10@gmail.com');
+(70, 'admin', '$2y$10$0jps/4f9rkU2SKphJ4CIOOEZdrSI8gWCfFFroHt9nCuOd2QDqRDTG', '2023-07-19 02:45:20', 'admin@gmail.com');
 
 --
 -- Indeksy dla zrzutów tabel
